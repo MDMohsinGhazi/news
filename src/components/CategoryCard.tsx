@@ -1,4 +1,5 @@
 import React from "react";
+import { fallback } from "../assets";
 
 interface Props {
   imgUrl?: string;
@@ -37,18 +38,23 @@ const CategoryCard: React.FC<Props> = ({ imgUrl, headline, desc, url, publishedA
   }
 
   return (
-    <div className="relative flex  flex-col justify-between rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+    <div className="relative flex flex-col justify-between text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
       <img
-        className=" bg-cover relative mx-4 -mt-6 h-[50%] overflow-hidden rounded-xl bg-clip-bordershadow-lg shadow-blue-gray-500/40"
-        src={imgUrl}
+        className="bg-contain relative mx-4 -mt-6 h-[50%] aspect-[5/3] overflow-hidden rounded-xl bg-clip-bordershadow-lg shadow-blue-gray-500/40"
+        src={imgUrl || fallback}
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.onerror = null;
+          target.src = fallback;
+        }}
       />
       <div className="p-6">
-        <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased line-clamp-2">
+        <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 line-clamp-2">
           {headline}
         </h5>
-        <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased line-clamp-4">{desc}</p>
+        <p className="flex-1 font-sans text-base antialiased font-light leading-relaxed text-inherit line-clamp-4">{desc}</p>
       </div>
-      <div className="flex justify-between items-baseline p-6 pt-0 ">
+      <div className="flex items-baseline justify-between p-6 pt-0 ">
         <a
           data-ripple-light="true"
           type="button"
@@ -59,7 +65,7 @@ const CategoryCard: React.FC<Props> = ({ imgUrl, headline, desc, url, publishedA
         >
           Read More
         </a>
-        <div className="text-gray-400 text-sm">{publishedAt ? getTimeDifference(publishedAt) : "Latest"}</div>
+        <div className="text-sm text-gray-400">{publishedAt ? getTimeDifference(publishedAt) : "Latest"}</div>
       </div>
     </div>
   );

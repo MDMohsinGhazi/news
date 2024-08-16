@@ -14,13 +14,14 @@ const ImageCursor: React.FC<Props> = ({ data }) => {
       modules={[Navigation, Pagination, A11y]}
       spaceBetween={10}
       slidesPerView={1}
+      autoplay={{ delay: 2500, disableOnInteraction: false }}
       navigation
       pagination={{ clickable: true }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log("slide change")}
     >
       {data?.map((artical, ind) => (
-        <SwiperSlide key={ind} className="rounded-xl overflow-hidden">
+        <SwiperSlide key={ind} className="overflow-hidden rounded-xl">
           <MainCard artical={artical} />
         </SwiperSlide>
       ))}

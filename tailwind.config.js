@@ -7,6 +7,9 @@ export default {
         Primary: "#dc2626",
         border: "#D1D5DB",
       },
+      backgroundImage: {
+        "custom-gradient": "linear-gradient(90deg, rgba(101,125,141,1) 0%, rgba(216,217,208,1) 100%)",
+      },
     },
     screens: {
       sm: "640px",

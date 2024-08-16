@@ -1,7 +1,8 @@
 import React from "react";
 import { WiRain, WiCloudy } from "react-icons/wi";
 import { LuSunrise, LuSunset } from "react-icons/lu";
-import { MdOutlineWbSunny } from "react-icons/md";
+import { BsCloudDrizzle } from "react-icons/bs";
+import { MdOutlineWbSunny, MdOutlineThunderstorm } from "react-icons/md";
 import { RootWeather } from "../types";
 
 interface Props {
@@ -33,15 +34,17 @@ const Weather: React.FC<Props> = ({ className, data }) => {
     Clear: MdOutlineWbSunny,
     Rain: WiRain,
     Clouds: WiCloudy,
+    Thunderstorm: MdOutlineThunderstorm,
+    Drizzle: BsCloudDrizzle,
   };
 
   const IconComponent = iconMapping[data?.weather[0].main] ?? MdOutlineWbSunny;
 
   return (
     <figure className={`rounded-lg shadow-md  ${className}`}>
-      <div className="flex justify-between bg-gray-100 px-5 py-6 rounded-t-xl">
-        <div>
-          <IconComponent size={150} />
+      <div className="flex justify-between px-5 py-6 bg-gray-100 rounded-t-xl">
+        <div className="flex flex-col gap-16">
+          <IconComponent size={100} />
           <div>{data?.weather[0].description}</div>
         </div>
         <div className="flex flex-col justify-between text-2xl">

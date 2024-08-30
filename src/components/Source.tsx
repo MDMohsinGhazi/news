@@ -1,6 +1,6 @@
-import React from "react";
-import CategoryCard from "./CategoryCard";
-import { useGetBysourcesQuery } from "../Home/store/apiSlice";
+import React from 'react';
+import CategoryCard from './CategoryCard';
+import { useGetBysourcesQuery } from '../Home/store/apiSlice';
 
 interface Props {
   name: string;
@@ -18,12 +18,12 @@ const Source: React.FC<Props> = ({ name, count, sources }) => {
   if (data) {
     return (
       <main>
-        <div className="flex items-center">
-          <div className="mx-4 font-semibold text-3xl ">{name}</div>
-          <div className="flex-1 border-t bg-border"></div>
-          <div className="mx-4">See more</div>
+        <div className='flex items-center'>
+          <div className='mx-4 font-semibold text-3xl '>{name}</div>
+          <div className='flex-1 border-t bg-border'></div>
+          <div className='mx-4'>See more</div>
         </div>
-        <div className="grid grid-cols-3 gap-8 mt-12 px-5">
+        <div className='grid grid-cols-3 gap-8 mt-12 px-5'>
           {data?.map((artical, ind) => (
             <CategoryCard
               key={ind}

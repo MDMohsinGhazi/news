@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from 'react';
 
 interface GeolocationData {
   latitude: number | null;
@@ -31,13 +31,17 @@ const useGeolocation = () => {
   }, []);
 
   useEffect(() => {
-    if ("geolocation" in navigator) {
+    if ('geolocation' in navigator) {
       // Watch position for continuous updates
-      const id = navigator.geolocation.watchPosition(handleSuccess, handleError, {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
-      });
+      const id = navigator.geolocation.watchPosition(
+        handleSuccess,
+        handleError,
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0,
+        }
+      );
       setWatchId(id);
 
       // Cleanup on unmount
@@ -50,7 +54,7 @@ const useGeolocation = () => {
       setLocation({
         latitude: null,
         longitude: null,
-        error: "Geolocation is not supported by this browser.",
+        error: 'Geolocation is not supported by this browser.',
       });
     }
   }, []);

@@ -1,1 +1,1 @@
-export { default as Category } from "./Landing";
+export { default as Category } from './Landing';

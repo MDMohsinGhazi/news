@@ -1,8 +1,8 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import type { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:8000/api/v1",
+  baseUrl: 'http://localhost:8000/api/v1',
   prepareHeaders: (headers) => {
     return headers;
   },
@@ -10,7 +10,7 @@ const baseQuery = fetchBaseQuery({
 
 export const apiSlice = createApi({
   baseQuery: baseQuery,
-  tagTypes: ["news"],
+  tagTypes: ['news'],
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   endpoints: (builder) => ({}),
 });

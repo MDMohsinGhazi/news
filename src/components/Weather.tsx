@@ -1,9 +1,9 @@
-import React from "react";
-import { WiRain, WiCloudy } from "react-icons/wi";
-import { LuSunrise, LuSunset } from "react-icons/lu";
-import { BsCloudDrizzle } from "react-icons/bs";
-import { MdOutlineWbSunny, MdOutlineThunderstorm } from "react-icons/md";
-import { RootWeather } from "../types";
+import React from 'react';
+import { WiRain, WiCloudy } from 'react-icons/wi';
+import { LuSunrise, LuSunset } from 'react-icons/lu';
+import { BsCloudDrizzle } from 'react-icons/bs';
+import { MdOutlineWbSunny, MdOutlineThunderstorm } from 'react-icons/md';
+import { RootWeather } from '../types';
 
 interface Props {
   className: string;
@@ -19,12 +19,12 @@ const Weather: React.FC<Props> = ({ className, data }) => {
     }
   }
 
-  function formatUnixTimestamp(timestamp = 0, locale = "en-US") {
+  function formatUnixTimestamp(timestamp = 0, locale = 'en-US') {
     const date = new Date(timestamp * 1000);
     const formatter = new Intl.DateTimeFormat(locale, {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
     });
 
     return formatter.format(date);
@@ -42,39 +42,39 @@ const Weather: React.FC<Props> = ({ className, data }) => {
 
   return (
     <figure className={`rounded-lg shadow-md  ${className}`}>
-      <div className="flex justify-between px-5 py-6 bg-gray-100 rounded-t-xl">
-        <div className="flex flex-col gap-16">
+      <div className='flex justify-between px-5 py-6 bg-gray-100 rounded-t-xl'>
+        <div className='flex flex-col gap-16'>
           <IconComponent size={100} />
           <div>{data?.weather[0].description}</div>
         </div>
-        <div className="flex flex-col justify-between text-2xl">
+        <div className='flex flex-col justify-between text-2xl'>
           <div>{data?.weather[0].main}</div>
-          <div className="flex text-6xl">
+          <div className='flex text-6xl'>
             <span>{fahrenheitToCelsius(data?.main.temp).toFixed(0)}°C</span>
           </div>
           <div>{data?.name}</div>
         </div>
       </div>
-      <div className="flex flex-col gap-4 p-10 text-lg">
-        <div className="flex justify-between">
+      <div className='flex flex-col gap-4 p-10 text-lg'>
+        <div className='flex justify-between'>
           <div>wind</div>
-          <div className="font-semibold">{data?.wind.speed} m/s</div>
+          <div className='font-semibold'>{data?.wind.speed} m/s</div>
         </div>
-        <div className="flex justify-between">
+        <div className='flex justify-between'>
           <div>Humidity</div>
-          <div className="font-semibold">{data?.main.humidity}%</div>
+          <div className='font-semibold'>{data?.main.humidity}%</div>
         </div>
-        <div className="flex justify-between">
+        <div className='flex justify-between'>
           <div>Pressure</div>
-          <div className="font-semibold">{data?.main.pressure} hPa</div>
+          <div className='font-semibold'>{data?.main.pressure} hPa</div>
         </div>
         {/* sunset sunrise */}
-        <div className="hidden justify-between mt-6 border-t-[1px] border-t-border pt-7  2xl:flex">
-          <div className="flex flex-col items-center">
+        <div className='hidden justify-between mt-6 border-t-[1px] border-t-border pt-7  2xl:flex'>
+          <div className='flex flex-col items-center'>
             <LuSunrise size={30} />
             <div>{formatUnixTimestamp(data?.sys.sunrise)}</div>
           </div>
-          <div className="flex flex-col items-center">
+          <div className='flex flex-col items-center'>
             <LuSunset size={30} />
             <div>{formatUnixTimestamp(data?.sys.sunset)}</div>
           </div>

@@ -1,13 +1,13 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Layout } from "./components";
-import { Home } from "./Home";
-import { Search } from "./Search";
-import { Category } from "./category";
-import { Videos } from "./videos";
+import { createBrowserRouter } from 'react-router-dom';
+import { Layout } from './components';
+import { Home } from './Home';
+import { Search } from './Search';
+import { Category } from './category';
+import { Videos } from './videos';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     children: [
       {
@@ -15,15 +15,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "search",
+        path: 'search',
         element: <Search />,
       },
       {
-        path: "videos",
+        path: 'videos',
         element: <Videos />,
       },
       {
-        path: "/:category",
+        path: '/:category',
         element: <Category />,
       },
     ],

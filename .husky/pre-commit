@@ -1,0 +1,43 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Hold on tight! We’re styling, testing, and building your project before committing.'
+
+# Check Prettier standards
+npm run check-format ||
+(
+    echo 'Your code styling is a mess!
+        Prettier Check Failed. Run npm run format, add changes, and try committing again.';
+    false;
+)
+
+# Check ESLint Standards
+npm run check-lint ||
+(
+        echo 'BLOCKED! "Get that weak code out of here!"
+                ESLint Check Failed. Clean up your code like you mean it, add the changes, and try again.'
+        false; 
+)
+
+# Check tsconfig standards
+npm run check-types ||
+(
+    echo 'TypeScript just facepalmed.
+    "Seriously? You thought that would work?"
+    Fix those types, add the changes, and give it another go.'
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
+
+npm run build ||
+(
+    echo 'Better call Bob... Because your build failed.
+            Next build failed: View the errors above to see why. 
+    '
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'

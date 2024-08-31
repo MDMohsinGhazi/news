@@ -1,5 +1,5 @@
-import { apiSlice } from "../../store/apiSlice";
-import { Videos } from "../../types";
+import { apiSlice } from '../../store/apiSlice';
+import { Videos } from '../../types';
 
 export const categoryApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

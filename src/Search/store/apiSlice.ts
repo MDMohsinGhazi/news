@@ -1,5 +1,5 @@
-import { apiSlice } from "../../store/apiSlice";
-import { Article } from "../../types";
+import { apiSlice } from '../../store/apiSlice';
+import { Article } from '../../types';
 
 export const searchApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

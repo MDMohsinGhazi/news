@@ -1,1 +1,1 @@
-export { default as Videos } from "./Landing";
+export { default as Videos } from './Landing';

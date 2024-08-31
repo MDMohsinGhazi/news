@@ -1,11 +1,11 @@
-import MainCard from "./MainCard";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, A11y } from "swiper/modules";
-import "swiper/css/bundle";
-import { Article } from "../types";
+import MainCard from './MainCard';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, A11y } from 'swiper/modules';
+import 'swiper/css/bundle';
+import { Article } from '../types';
 
 interface Props {
-  data?: Article[];
+  data: Article[];
 }
 
 const ImageCursor: React.FC<Props> = ({ data }) => {
@@ -18,10 +18,10 @@ const ImageCursor: React.FC<Props> = ({ data }) => {
       navigation
       pagination={{ clickable: true }}
       onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
+      onSlideChange={() => console.log('slide change')}
     >
-      {data?.map((artical, ind) => (
-        <SwiperSlide key={ind} className="overflow-hidden rounded-xl">
+      {data?.map((artical, index) => (
+        <SwiperSlide key={index} className='overflow-hidden rounded-xl'>
           <MainCard artical={artical} />
         </SwiperSlide>
       ))}
